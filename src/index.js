@@ -92,13 +92,13 @@ const todolistsForEasySearch  = {
   [todolistID_2]: {id: todolistID_2, title: 'what to buy'}
 }
 
-const newObj = {}
-for (let i = 0; i < todolists.length; i++) {
-  const newKey = todolists[i].id
-  newObj[newKey] = todolists[i]
-
-}
-console.log('Array todolists:', newObj)
+// const newObj = {}
+// for (let i = 0; i < todolists.length; i++) {
+//   const newKey = todolists[i].id
+//   newObj[newKey] = todolists[i]
+//
+// }
+// console.log('Array todolists:', newObj)
 
 // Напиши код, который использует цикл for для подсчета суммы всех
 // чисел от 1 до 10 и выводит результат в консоль.
@@ -111,3 +111,11 @@ console.log('Array todolists:', newObj)
 // }
 //
 // console.log('new sum:', sum)
+
+
+const result = todolists.reduce((newObj, el) => {
+  newObj[el.id] = el
+  return newObj
+}, {})
+
+console.log('Log reduce:', result)
