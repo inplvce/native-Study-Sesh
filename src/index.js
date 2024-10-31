@@ -86,4 +86,28 @@ const addTodolist = (title) => {
   console.log('Tasks:', updatedTasks);
 
 
+// для быстрого поиска (трансформируем массив в объект)
+const todolistsForEasySearch  = {
+  [todolistID_1]: {id: todolistID_1, title: 'what to learn'},
+  [todolistID_2]: {id: todolistID_2, title: 'what to buy'}
+}
 
+const newObj = {}
+for (let i = 0; i < todolists.length; i++) {
+  const newKey = todolists[i].id
+  newObj[newKey] = todolists[i]
+
+}
+console.log('Array todolists:', newObj)
+
+// Напиши код, который использует цикл for для подсчета суммы всех
+// чисел от 1 до 10 и выводит результат в консоль.
+
+// const limit = 10
+// let sum = 0
+//
+// for (let i = 0; i <= limit; i++) {
+//   sum += limit
+// }
+//
+// console.log('new sum:', sum)
