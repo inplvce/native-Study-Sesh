@@ -148,6 +148,8 @@ const products = [
   { name: "Laptop", price: 800 },
 ];
 
+const sum123 = [124324, 87654, 345, 23, 13, 5678900, 12]
+
 // const priceAllProducts = products.reduce((pr, el) => {
 //   return pr + el.price;
 // }, 0)
@@ -156,3 +158,5 @@ const products = [
 const priceAllProducts = products.reduce((pr, el) => pr + el.price, 0)
 console.log('price:', priceAllProducts)
 
+const result3 = sum123.reduce((biggest, el) => biggest > el ? biggest : el)
+console.log('biggest:',result3)
