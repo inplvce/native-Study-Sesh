@@ -119,3 +119,40 @@ const result = todolists.reduce((newObj, el) => {
 }, {})
 
 console.log('Log reduce:', result)
+
+// const arr = [1,2,3,4,5,6]
+//
+// const result2 = arr.reduce((sum, el) => {
+//   sum += el
+//   console.log('sum2:', sum)
+//   return sum
+// }, 6)
+// console.log('result2:', result2)
+
+
+const cart = [
+  { name: "Apple", quantity: 3 },
+  { name: "Banana", quantity: 2 },
+  { name: "Orange", quantity: 5 },
+];
+
+const resultCart = cart.reduce((acc, el) => {
+ return acc + el.quantity}, 0)
+console.log('resultCart:',resultCart)
+
+// const resultCart = cart.reduce((acc, el) => acc + el.quantity, 0);
+
+const products = [
+  { name: "Phone", price: 300 },
+  { name: "Tablet", price: 200 },
+  { name: "Laptop", price: 800 },
+];
+
+// const priceAllProducts = products.reduce((pr, el) => {
+//   return pr + el.price;
+// }, 0)
+// console.log('price:', priceAllProducts)
+
+const priceAllProducts = products.reduce((pr, el) => pr + el.price, 0)
+console.log('price:', priceAllProducts)
+
