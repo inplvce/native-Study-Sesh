@@ -1,61 +1,61 @@
-const banksArray = [
-  {
-    id: 1,
-    name: "Bank of America",
-    addresses: [
-      {
-        street: "100 N Tryon St",
-        city: "Charlotte",
-        state: "NC",
-        zip: "28255",
-        depositRate: 1.2,
-        geo: {
-          lat: 35.2271,
-          lng: -80.8431
-        }
-      }
-    ]
-  },
-  {
-    id: 4,
-    name: "Another Bank",
-    addresses: [
-      {
-        street: "200 Some St",
-        city: "New York",
-        state: "NY",
-        zip: "10001",
-        depositRate: 1.5,
-        geo: {
-          lat: 40.0,
-          lng: -74.0
-        }
-      }
-    ]
-  }
-];
-
-const banksArrayCopy = [...banksArray]; // Копируем массив
-
-console.log("banksArrayCopy:", banksArrayCopy); // Проверка содержимого перед map
-
-const newLatValue = 40.7128;
-const banksArrayCopy2 = banksArrayCopy.map((b) =>
-  b.id === 4
-    ? {
-      ...b,
-      addresses: b.addresses.map((a) => ({
-        ...a,
-        geo: {
-          ...a.geo,
-          lat: newLatValue,
-        },
-      })),
-    }
-    : b
-);
-
-console.log("banksArrayCopy222:", banksArrayCopy2); // Проверка результата
+// const banksArray = [
+//   {
+//     id: 1,
+//     name: "Bank of America",
+//     addresses: [
+//       {
+//         street: "100 N Tryon St",
+//         city: "Charlotte",
+//         state: "NC",
+//         zip: "28255",
+//         depositRate: 1.2,
+//         geo: {
+//           lat: 35.2271,
+//           lng: -80.8431
+//         }
+//       }
+//     ]
+//   },
+//   {
+//     id: 4,
+//     name: "Another Bank",
+//     addresses: [
+//       {
+//         street: "200 Some St",
+//         city: "New York",
+//         state: "NY",
+//         zip: "10001",
+//         depositRate: 1.5,
+//         geo: {
+//           lat: 40.0,
+//           lng: -74.0
+//         }
+//       }
+//     ]
+//   }
+// ];
+//
+// const banksArrayCopy = [...banksArray]; // Копируем массив
+//
+// console.log("banksArrayCopy:", banksArrayCopy); // Проверка содержимого перед map
+//
+// const newLatValue = 40.7128;
+// const banksArrayCopy2 = banksArrayCopy.map((b) =>
+//   b.id === 4
+//     ? {
+//       ...b,
+//       addresses: b.addresses.map((a) => ({
+//         ...a,
+//         geo: {
+//           ...a.geo,
+//           lat: newLatValue,
+//         },
+//       })),
+//     }
+//     : b
+// );
+//
+// console.log("banksArrayCopy222:", banksArrayCopy2); // Проверка результата
 
 
 // Задача: Обновление информации о пользователях в массиве
@@ -65,44 +65,44 @@ console.log("banksArrayCopy222:", banksArrayCopy2); // Проверка резу
 // содержащим широту (lat) и долготу (lng). Твоя задача — для определённого
 // пользователя с конкретным id обновить широту (lat) во всех его адресах.
 
-const usersArray = [
-  {
-    id: 1,
-    name: "Alice",
-    addresses: [
-      {
-        street: "123 Maple St",
-        city: "Springfield",
-        geo: { lat: 39.7817, lng: -89.6501 }
-      }
-    ]
-  },
-  {
-    id: 2,
-    name: "Bob",
-    addresses: [
-      {
-        street: "456 Oak St",
-        city: "Metropolis",
-        geo: { lat: 40.7128, lng: -74.0060 }
-      },
-      {
-        street: "789 Pine St",
-        city: "Metropolis",
-        geo: { lat: 40.7328, lng: -74.0460 }
-      }
-    ]
-  }
-];
-
-const newUsersLat = 99.9999
-const usersCopy = usersArray.map((users) => users.id === 2 ? {
-  ...users, addresses: users.addresses.map((user) => ({
-    ...user, geo: {...user.geo, lat: newUsersLat}
-  }))
-} : users)
-
-console.log('usersCopy:', usersCopy)
+// const usersArray = [
+//   {
+//     id: 1,
+//     name: "Alice",
+//     addresses: [
+//       {
+//         street: "123 Maple St",
+//         city: "Springfield",
+//         geo: { lat: 39.7817, lng: -89.6501 }
+//       }
+//     ]
+//   },
+//   {
+//     id: 2,
+//     name: "Bob",
+//     addresses: [
+//       {
+//         street: "456 Oak St",
+//         city: "Metropolis",
+//         geo: { lat: 40.7128, lng: -74.0060 }
+//       },
+//       {
+//         street: "789 Pine St",
+//         city: "Metropolis",
+//         geo: { lat: 40.7328, lng: -74.0460 }
+//       }
+//     ]
+//   }
+// ];
+//
+// const newUsersLat = 99.9999
+// const usersCopy = usersArray.map((users) => users.id === 2 ? {
+//   ...users, addresses: users.addresses.map((user) => ({
+//     ...user, geo: {...user.geo, lat: newUsersLat}
+//   }))
+// } : users)
+//
+// console.log('usersCopy:', usersCopy)
 
 
 
@@ -112,3 +112,37 @@ console.log('usersCopy:', usersCopy)
 // Каждая задача имеет статус, показывающий, выполнена она или нет.
 // Твоя цель — найти определённого пользователя по id и для всех
 // его задач обновить статус на “выполнено”.
+
+// Твоя цель:
+//   •	Найти пользователя с id, равным 3.
+// 	•	Обновить статус isDone на true для всех задач этого пользователя.
+// 	•	Остальные задачи других пользователей не изменять.
+
+
+const usersArray = [
+  {
+    id: 1,
+    name: "Alice",
+    tasks: [
+      { taskId: 101, title: "Buy groceries", isDone: false },
+      { taskId: 102, title: "Walk the dog", isDone: true }
+    ]
+  },
+  {
+    id: 3,
+    name: "Bob",
+    tasks: [
+      { taskId: 201, title: "Finish homework", isDone: false },
+      { taskId: 202, title: "Clean room", isDone: false }
+    ]
+  }
+];
+
+const usersArrayCopy = usersArray.map((u) => u.id === 3 ? {
+  ...u, tasks: u.tasks.map((t) => ({
+    ...t, isDone: true
+  }))
+} : u
+);
+
+console.log('usersArrayCopy:', usersArrayCopy)
