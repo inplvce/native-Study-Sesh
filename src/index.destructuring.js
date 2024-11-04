@@ -1,5 +1,3 @@
-console.log(typeof(null))
-
 const banksArray = [
   {
     id: 1,
@@ -15,113 +13,46 @@ const banksArray = [
           lat: 35.2271,
           lng: -80.8431
         }
-      },
+      }
+    ]
+  },
+  {
+    id: 4,
+    name: "Another Bank",
+    addresses: [
       {
-        street: "200 Park Ave",
+        street: "200 Some St",
         city: "New York",
         state: "NY",
-        zip: "10166",
+        zip: "10001",
         depositRate: 1.5,
         geo: {
-          lat: 40.7549,
-          lng: -73.9775
-        }
-      }
-    ]
-  },
-  {
-    id: 2,
-    name: "JPMorgan Chase",
-    addresses: [
-      {
-        street: "383 Madison Ave",
-        city: "New York",
-        state: "NY",
-        zip: "10179",
-        depositRate: 1.8,
-        geo: {
-          lat: 40.7574,
-          lng: -73.9754
-        }
-      },
-      {
-        street: "10 S Dearborn St",
-        city: "Chicago",
-        state: "IL",
-        zip: "60603",
-        depositRate: 2.0,
-        geo: {
-          lat: 41.8818,
-          lng: -87.6324
-        }
-      }
-    ]
-  },
-  {
-    id: 3,
-    name: "Wells Fargo",
-    addresses: [
-      {
-        street: "420 Montgomery St",
-        city: "San Francisco",
-        state: "CA",
-        zip: "94104",
-        depositRate: 1.3,
-        geo: {
-          lat: 37.7898,
-          lng: -122.401
-        }
-      },
-      {
-        street: "150 E 42nd St",
-        city: "New York",
-        state: "NY",
-        zip: "10017",
-        depositRate: 1.6,
-        geo: {
-          lat: 40.7506,
-          lng: -73.9717
+          lat: 40.0,
+          lng: -74.0
         }
       }
     ]
   }
 ];
 
-console.log(banksArray)
+const banksArrayCopy = [...banksArray]; // Копируем массив
 
-// crud
+console.log("banksArrayCopy:", banksArrayCopy); // Проверка содержимого перед map
 
-const newBank = {
-  id: '4',
-    name: "Bank of Belarus",
-  addresses: [
-  {
-    street: "10 N Tryon St",
-    city: "Charlotte",
-    state: "NC",
-    zip: "28255",
-    depositRate: 0.2,
-    geo: {
-      lat: 35.22711,
-      lng: -80.84312
+const newLatValue = 40.7128;
+const banksArrayCopy2 = banksArrayCopy.map((b) =>
+  b.id === 4
+    ? {
+      ...b,
+      addresses: b.addresses.map((a) => ({
+        ...a,
+        geo: {
+          ...a.geo,
+          lat: newLatValue,
+        },
+      })),
     }
-  },
-  {
-    street: "200 Park Ave",
-    city: "New York",
-    state: "NY",
-    zip: "10166",
-    depositRate: 0.5,
-    geo: {
-      lat: 40.75491,
-      lng: -73.97752
-    }
-  }
-]
-}
+    : b
+);
 
-
-const banksArrayCopy = {...banksArray, newBank}
-console.log('BanksArrayCopy:', banksArrayCopy)
-
-const banksArrayCopy2=
+console.log("banksArrayCopy222:", banksArrayCopy2); // Проверка результата
