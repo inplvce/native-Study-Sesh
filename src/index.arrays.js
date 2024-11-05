@@ -1,2 +1,8 @@
-const arr = new Array(1000);
-console.log(arr)
+const arr = Array.from('hey');
+console.log(arr);
+
+function newArr() {
+  return `length array = ${this.length}`;
+}
+Array.prototype.newArr = newArr;
+console.log(arr.newArr());
