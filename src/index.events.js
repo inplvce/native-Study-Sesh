@@ -30,3 +30,8 @@ for (let j = 0; j < numbers.length; j++) {
 }
 
 console.log(numbers)
+
+
+const timer = () => {
+const [secont, setSecond] = useState;
+}
